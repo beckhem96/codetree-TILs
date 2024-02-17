@@ -64,7 +64,7 @@ cross1 = [[-1, 0], [0, 1], [1, 0], [0, -1]] # n -1까지
 cnt = 0
 for i in range(n):
     for j in range(n):
-        for k in range(n):
+        for k in range(2*(n-1)):
             costSum = cost(k)
             tmp = calArea(k, i, j, n)
             
