@@ -5,24 +5,32 @@ def calArea(K, ti, tj, n):
     cnt = 0
 
     if (K == 0 and arr[ti][tj] == 1):
-        cnt += 1
+        return 1
     if(K == 1):
+        if (arr[ti][tj] == 1):
+            cnt += 1
         for si, sj in cross1:
             if (checkLine(ti + si*K, tj + sj*K)):
                 if(arr[ti + si*K][tj + sj*K] == 1):
+                    # if(ti == 2 and tj == 4 and K == 1):
+                    #     print(ti + si*K, tj + sj*K, "cross1")
                     cnt += 1
     elif (K >= 2):
         # 십자
         for si, sj in cross1:
             if (checkLine(ti + si*K, tj + sj*K)):
                 if(arr[ti + si*K][tj + sj*K] == 1):
+                    # if(ti == 2 and tj == 3 and K ==2):
+                    #     print(ti + si*K, tj + sj*K, "cross1")
                     cnt += 1
         # 꺾인 십자
         tk = K-1
-        for si in range(ti - tk, ti + tk):
-            for sj in range(tj - tk, tj + tk):
+        for si in range(ti - tk, ti + K):
+            for sj in range(tj - tk, tj + K):
                 if (checkLine(si, sj)):
                     if(arr[si][sj] == 1):
+                        # if(ti == 2 and tj == 3 and K ==2):
+                        #     print(si, sj, ti - tk, ti + K, tj - tk, tj + K, "cross2")
                         cnt += 1
     return cnt
 
@@ -42,6 +50,5 @@ for i in range(n):
             costSum = cost(k)
             tmp = calArea(k, i, j, n)
             if ((tmp * m - costSum) >= 0): # 손해가 아니면
-                if (cnt < tmp):
-                    cnt = tmp
+                cnt = max(cnt, tmp)
 print(cnt)
