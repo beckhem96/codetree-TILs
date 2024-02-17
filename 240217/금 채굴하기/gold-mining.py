@@ -49,6 +49,7 @@ for i in range(n):
         for k in range(n):
             costSum = cost(k)
             tmp = calArea(k, i, j, n)
-            if ((tmp * m - costSum) >= 0): # 손해가 아니면
+            if ((tmp * m - costSum) > 0): # 손해가 아니면
                 cnt = max(cnt, tmp)
+                # print(i, j, k, cnt, tmp * m, costSum)
 print(cnt)
