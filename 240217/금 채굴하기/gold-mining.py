@@ -4,8 +4,8 @@ def cost(K):
 def calArea(K, ti, tj, n):
     cnt = 0
 
-    if (arr[ti][tj] == 1):
-            cnt += 1
+    if (K == 0 and arr[ti][tj] == 1):
+        cnt += 1
     if(K == 1):
         for si, sj in cross1:
             if (checkLine(ti + si*K, tj + sj*K)):
@@ -18,12 +18,12 @@ def calArea(K, ti, tj, n):
                 if(arr[ti + si*K][tj + sj*K] == 1):
                     cnt += 1
         # 꺾인 십자
-        for z in range(1, K):
-            for si in range(ti -z, ti + z):
-                for sj in range(tj -z, tj + z):
-                    if (checkLine(ti + si*K, tj + sj*K)):
-                        if(arr[si][sj] == 1):
-                            cnt += 1
+        tk = K-1
+        for si in range(ti - tk, ti + tk):
+            for sj in range(tj - tk, tj + tk):
+                if (checkLine(si, sj)):
+                    if(arr[si][sj] == 1):
+                        cnt += 1
     return cnt
 
 def checkLine(i, j):
