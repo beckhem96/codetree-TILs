@@ -15,23 +15,42 @@ def calArea(K, ti, tj, n):
                     # if(ti == 2 and tj == 4 and K == 1):
                     #     print(ti + si*K, tj + sj*K, "cross1")
                     cnt += 1
-    elif (K >= 2):
-        # 십자
+    elif (K == 2):
+        # 정사각형 밖 4개
         for si, sj in cross1:
             if (checkLine(ti + si*K, tj + sj*K)):
                 if(arr[ti + si*K][tj + sj*K] == 1):
-                    # if(ti == 2 and tj == 3 and K ==2):
+                    # if(ti == 0 and tj == 0 and K == 4):
                     #     print(ti + si*K, tj + sj*K, "cross1")
                     cnt += 1
-        # 꺾인 십자
-        tk = K-1
+        # 정사각형
+        tk = K - 1 
         for si in range(ti - tk, ti + K):
             for sj in range(tj - tk, tj + K):
                 if (checkLine(si, sj)):
                     if(arr[si][sj] == 1):
-                        # if(ti == 2 and tj == 3 and K ==2):
+                        # if(ti == 0 and tj == 0 and K == 4):
                         #     print(si, sj, ti - tk, ti + K, tj - tk, tj + K, "cross2")
                         cnt += 1
+    elif (k >= 3):
+        # 정사각형 밖 4개
+        for si, sj in cross1:
+            if (checkLine(ti + si*K, tj + sj*K)):
+                if(arr[ti + si*K][tj + sj*K] == 1):
+                    # if(ti == 0 and tj == 0 and K == 4):
+                    #     print(ti + si*K, tj + sj*K, "cross1")
+                    cnt += 1
+        # 정사각형
+        tk = K - 1 
+        for si in range(ti - tk, ti + K):
+            for sj in range(tj - tk, tj + K):
+                if (checkLine(si, sj)):
+                    if ((si != ti - tk and sj != tj - tk) and (si != ti - tk and sj != tj + tk) 
+                    and (si != ti + tk and sj != tj - tk) and (si != ti + tk and sj != tj + tk)):
+                        if(arr[si][sj] == 1):
+                            # if(ti == 0 and tj == 0 and K == 4):
+                            #     print(si, sj, ti - tk, ti + K, tj - tk, tj + K, "cross2")
+                            cnt += 1
     return cnt
 
 def checkLine(i, j):
@@ -39,7 +58,6 @@ def checkLine(i, j):
         return True
     else:
         return False
-
 n, m = map(int, input().split()) # m은 골드 값, 한 칸단 한 cost
 arr = [list(map(int, input().split())) for _ in range(n)]
 cross1 = [[-1, 0], [0, 1], [1, 0], [0, -1]] # n -1까지
