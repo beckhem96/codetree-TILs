@@ -22,7 +22,7 @@ arr = [list(map(int, input().split())) for _ in range(n)]
 cnt = 0
 for i in range(n):
     for j in range(n):
-        for k in range(2*(n-1)):
+        for k in range(2*(n-1)+1):
             costSum = cost(k)
             tmp = calCnt(k, i, j)
             if ((tmp * m - costSum) >= 0): # 손해가 아니면
