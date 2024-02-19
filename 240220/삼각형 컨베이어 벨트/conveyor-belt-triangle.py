@@ -1,5 +1,5 @@
 n, t = map(int, input().split())
-arr = [list(map(int, input().split())) for _ in range(n)]
+arr = [list(map(int, input().split())) for _ in range(3)]
 tmp1, tmp2, tmp3 = 0, 0, 0
 for _ in range(t):
     tmp1, tmp2, tmp3 = arr[0][n-1], arr[1][n-1], arr[2][n-1]
