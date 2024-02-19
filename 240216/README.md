@@ -12,7 +12,7 @@
 
 |교재|이름|난이도|상태|최근 제출 코드|
 |---|---|:---:|:---:|---|
-|[Intermediate Low / Simulation / 격자 안에서 완전탐색](https://www.codetree.ai/missions?missionId=2)|[[연습]금 채굴하기](https://www.codetree.ai/missions/2/problems/gold-mining)|![보통][medium]|![Failed][failed]|[링크](https://github.com/beckhem96/codetree-TILs/blob/main/240216/%EA%B8%88%20%EC%B1%84%EA%B5%B4%ED%95%98%EA%B8%B0/gold-mining.py)|
+|[Intermediate Low / Simulation / 격자 안에서 완전탐색](https://www.codetree.ai/missions?missionId=2)|[[연습]금 채굴하기](https://www.codetree.ai/missions/2/problems/gold-mining)|![보통][medium]|![Passed][passed]|[링크](https://github.com/beckhem96/codetree-TILs/blob/main/240216/%EA%B8%88%20%EC%B1%84%EA%B5%B4%ED%95%98%EA%B8%B0/gold-mining.py)|
 
 
 * 획득 경험치: 해설을 보지 않고 푼 문제에 한해 최초 1회 경험치를 획득하실 수 있습니다.
