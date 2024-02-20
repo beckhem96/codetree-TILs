@@ -16,25 +16,26 @@ def check_spread_up(row):
     return False
 
 def wind_move(row, way, spread_way):
-    if (way == 'R'):
-        tmp = arr[row][0]
-        for i in range(m-1):
-            arr[row][i] = arr[row][i + 1]
-        arr[row][m-1] = tmp
-        if (spread_way == '' or spread_way== "up" and check_spread_up(row - 1)):
-            wind_move(row - 1, 'L', 'up')
-        if (spread_way == '' or spread_way== "down" and check_spread_down(row + 1)):
-            wind_move(row + 1, 'L', 'down')
-    else:
-        tmp = arr[row][m-1]
-        for i in range(m-1, 0, -1):
-            arr[row][i] = arr[row][i - 1]
-        arr[row][0] = tmp
+    if (0 <= row < n): 
+        if (way == 'R'):
+            tmp = arr[row][0]
+            for i in range(m-1):
+                arr[row][i] = arr[row][i + 1]
+            arr[row][m-1] = tmp
+            if (spread_way == '' or spread_way== "up" and check_spread_up(row - 1)):
+                wind_move(row - 1, 'L', 'up')
+            if (spread_way == '' or spread_way== "down" and check_spread_down(row + 1)):
+                wind_move(row + 1, 'L', 'down')
+        else:
+            tmp = arr[row][m-1]
+            for i in range(m-1, 0, -1):
+                arr[row][i] = arr[row][i - 1]
+            arr[row][0] = tmp
 
-        if (spread_way == '' or spread_way== "up" and check_spread_up(row - 1)):
-            wind_move(row - 1, 'R', 'up')
-        if (spread_way == '' or spread_way== "down" and check_spread_down(row + 1)):
-            wind_move(row + 1, 'R', 'down')
+            if (spread_way == '' or spread_way== "up" and check_spread_up(row - 1)):
+                wind_move(row - 1, 'R', 'up')
+            if (spread_way == '' or spread_way== "down" and check_spread_down(row + 1)):
+                wind_move(row + 1, 'R', 'down')
 
 for _ in range(q):
     row, way = input().split()
