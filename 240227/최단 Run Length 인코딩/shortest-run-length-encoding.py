@@ -1,6 +1,6 @@
 arr = list(input())
 n = len(arr)
-result = 20
+result = 30
 def shift():
     tmp = arr[-1] 
     for i in range(n-1, 0, -1):
