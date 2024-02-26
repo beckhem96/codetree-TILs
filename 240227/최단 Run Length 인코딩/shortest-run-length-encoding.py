@@ -16,6 +16,6 @@ def get_len():
 
     return cnt * 2
 
-for _ in range(n-1):
+for _ in range(n):
     result = min(shift(), result)
 print(result)
