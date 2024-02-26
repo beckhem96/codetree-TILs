@@ -13,7 +13,9 @@ def get_len():
         if (arr[i] != arr[i+1]):
             cnt += 1
     return cnt * 2
-for _ in range(n):
-    result = min(shift(), result)
-
-print(result)
+if (n > 1):
+    for _ in range(n):
+        result = min(shift(), result)
+    print(result)
+else: 
+    print(1)
