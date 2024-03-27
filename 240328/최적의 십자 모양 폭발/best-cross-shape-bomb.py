@@ -17,10 +17,16 @@ def remove_nums(i, j):
 def move_nums():
     for j in range(n):
         for i in range(n-1, -1, -1):
-            if (tmp[i][j] == 0 and check_range(i-1, j)):
-                tmp[i][j] = tmp[i-1][j]
-                tmp[i-1][j] = 0
-
+            if (tmp[i][j] == 0):
+                move_num = 1
+                while(True):
+                    if (check_range(i-move_num, j) == False):
+                        break
+                    if (tmp[i-move_num][j] != 0):
+                        tmp[i][j] = tmp[i-move_num][j]
+                        tmp[i-move_num][j] = 0
+                        break
+                    move_num += 1
 
 def check_range(i, j):
     return 0 <= i < n and 0 <= j < n
