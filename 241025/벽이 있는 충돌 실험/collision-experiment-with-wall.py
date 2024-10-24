@@ -23,12 +23,12 @@ def update_next_dir(i, j, move_dir):
         next_dir[i][j] = COLLIDE
 
 def move(i, j, move_dir):
-    dis, djs = [-1, 1, 0, 0], [0, 0, 1, -1]
+    dis, djs = [-1, 0, 0, 1], [0, 1, -1, 0]
     ni, nj = i + dis[move_dir], j + djs[move_dir]
     if in_range(ni, nj):
         update_next_dir(ni, nj, move_dir)
     else:
-        update_next_dir(i, j, (5-move_dir)%4)
+        update_next_dir(i, j, 3- move_dir)
 def move_all():
     global next_dir
 
