@@ -25,27 +25,42 @@ def check_crash():
         for j in range(n):
             if len(next_arr[i][j]) > k:
                 sorted(next_arr[i][j], key = lambda x:(x[1], x[2]))
+                # print(next_arr[i][j])
                 next_arr[i][j] = next_arr[i][j][len(next_arr[i][j]) - k:len(next_arr[i][j])]
+                # print(next_arr[i][j])
+                # print()
     
-for _ in range(t):
+for ts in range(t):
     for i in range(n):
         for j in range(n):
             if len(arr[i][j]) != 0:
-                for _ in range(len(arr[i][j])):
+                count = len(arr[i][j])
+                for _ in range(count):
+                    # if (ts == 1):
+                    #     print(arr[i][j])
                     tmp_dv = arr[i][j].pop(0)
                     ti, tj = i, j
                     time = tmp_dv[1] 
                     while(time != 0):
                         ti, tj, tmp_dv, tmp_time = move(ti, tj, tmp_dv) 
-                        # if i == 0 and j == 1:
-                            # print(ti, tj, tmp_dv, tmp_time)
                         time += tmp_time
                     next_arr[ti][tj].append(tmp_dv)
+
     check_crash()
     arr = copy.deepcopy(next_arr)
+    next_arr = [[list() for _ in range(n)] for _ in range(n)]
+    # for e in range(n):
+    #     for r in range(n):
+    #         print(arr[e][r], end=' ')
+    #     print()
+    # print()
 
 for i in range(n):
     for j in range(n):
         result += len(arr[i][j])
 
 print(result)
+
+# test = [(1, 2), (3, 4), (5, 6), (7, 8), (9, 10)]
+
+# print(test[3:5])
