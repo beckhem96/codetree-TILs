@@ -24,7 +24,7 @@ def check_crash():
     for i in range(n):
         for j in range(n):
             if len(next_arr[i][j]) > k:
-                sorted(next_arr[i][j], key = lambda x:(x[1], -x[2]))
+                next_arr[i][j] = sorted(next_arr[i][j], key = lambda x:(x[1], x[2]))
                 # print(next_arr[i][j])
                 next_arr[i][j] = next_arr[i][j][len(next_arr[i][j]) - k:len(next_arr[i][j])]
                 # print(next_arr[i][j])
@@ -60,7 +60,3 @@ for i in range(n):
         result += len(arr[i][j])
 
 print(result)
-
-# test = [(1, 2), (3, 4), (5, 6), (7, 8), (9, 10)]
-
-# print(test[3:5])
