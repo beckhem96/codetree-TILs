@@ -1,7 +1,7 @@
 BLANK = -1
 
 n, m, t = map(int, input().split())
-arr = [[0 for _ in range(n)] for _ in range(n)]
+arr = [[BLANK for _ in range(n)] for _ in range(n)]
 marbles = []
 next_marbles = []
 mapper = {'D':0, 'R':1, 'L':2, 'U':3}
@@ -33,12 +33,14 @@ def crash(marble1, marble2):
 
 def push_next_marbles(marble):
     index = check_crash(marble)
-    if index == 0:
+    r, c, d, w, num = marble
+    if index == BLANK:
         next_marbles.append(marble)
         r, c, d, w, num = marble
         arr[r][c] = len(next_marbles) - 1
     else:
         next_marbles[index] = crash(next_marbles[index], marble)
+
 
 for num in range(m):
     r, c, d, w = input().split()
@@ -49,10 +51,9 @@ for _ in range(t):
     for marble in marbles:
         next_marble = move(marble)
         push_next_marbles(next_marble)
-
     marbles = next_marbles[:]
     next_marbles = []
-    arr = [[0 for _ in range(n)] for _ in range(n)]
+    arr = [[BLANK for _ in range(n)] for _ in range(n)]
 
 result = 0
 for i in range(len(marbles)):
