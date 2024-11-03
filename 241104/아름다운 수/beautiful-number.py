@@ -7,7 +7,7 @@ def is_beautiful():
     while i < n:
         if i + seq[i] - 1 >= n:
             return False
-            
+
         for j in range(i, i + seq[i]):
             if seq[j] != seq[i]:
                 return False
@@ -28,3 +28,4 @@ def count_beautiful_seq(cnt):
         seq.pop()
 
 count_beautiful_seq(0)
+print(ans)
