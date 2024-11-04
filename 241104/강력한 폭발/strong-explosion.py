@@ -15,12 +15,12 @@ def bomb(x, y, b_type):
         [[-1, 0], [1, 0], [0, 0], [0, -1], [0, 1]],
         [[-1, -1], [-1, 1], [0, 0], [1, -1], [1, 1]]
     ]
-    
+
     for i in range(5):
-        dx, dy = bomb_shapes[b_type][i]
+        dx, dy = bomb_shapes[b_type][i];
         nx, ny = x + dx, y + dy
         if in_range(nx, ny):
-            bombed[ny][ny] = True
+            bombed[nx][ny] = True
 
 def calc():
     for i in range(n):
