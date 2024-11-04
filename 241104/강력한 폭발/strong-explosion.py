@@ -3,17 +3,19 @@ bomb_type = [[0 for _ in range(n)] for _ in range(n)]
 bombed = [[False for _ in range(n)] for _ in range(n)]
 ans = 0
 bomb_pos = list()
-bomb_shapes = [
-    [],
-    [[-2, 0], [-1, 0], [0, 0], [1, 0], [2, 0]],
-    [[-1, 0], [1, 0], [0, 0], [0, -1], [0, 1]],
-    [[-1, -1], [-1, 1], [0, 0], [1, -1], [1, 1]]
-]
+
 def in_range(i, j):
     return 0<=i<n and 0<=j<n
 
 def bomb(x, y, b_type):
 
+    bomb_shapes = [
+        [],
+        [[-2, 0], [-1, 0], [0, 0], [1, 0], [2, 0]],
+        [[-1, 0], [1, 0], [0, 0], [0, -1], [0, 1]],
+        [[-1, -1], [-1, 1], [0, 0], [1, -1], [1, 1]]
+    ]
+    
     for i in range(5):
         dx, dy = bomb_shapes[b_type][i]
         nx, ny = x + dx, y + dy
