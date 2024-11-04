@@ -14,7 +14,7 @@ def in_range(i, j):
 def bomb(x, y, b_type):
 
     for i in range(5):
-        dx, dy = bomb_shapes[b_type]
+        dx, dy = bomb_shapes[b_type][i]
         nx, ny = x + dx, y + dy
         if in_range(nx, ny):
             bombed[ny][ny] = True
