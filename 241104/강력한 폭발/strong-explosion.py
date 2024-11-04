@@ -4,6 +4,7 @@ bombed = [[False for _ in range(n)] for _ in range(n)]
 ans = 0
 bomb_pos = list()
 bomb_shapes = [
+    [],
     [[-2, 0], [-1, 0], [0, 0], [1, 0], [2, 0]],
     [[-1, 0], [1, 0], [0, 0], [0, -1], [0, 1]],
     [[-1, -1], [-1, 1], [0, 0], [1, -1], [1, 1]]
@@ -42,7 +43,7 @@ def find_max_area(cnt):
     if cnt == len(bomb_pos):
         ans = max(ans, calc())
         return
-    for i in range(3):
+    for i in range(1, 4):
         x, y = bomb_pos[cnt]
 
         bomb_type[x][y] = i
