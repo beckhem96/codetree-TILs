@@ -19,7 +19,7 @@ def cal_nums(cnt):
     cal_nums(cnt + 1)
     selected_nums.pop()
     cal_nums(cnt + 1)
-    return sum_value
+
 
 def add_nums(i, x1, x2):
     global selected_nums, nums, sum_value
@@ -27,11 +27,12 @@ def add_nums(i, x1, x2):
     sum_value = 0
     selected_nums = []
 
-
     for j in range(x1, x2+1):
         nums.append(arr[i][j])
 
-    return cal_nums(0)
+    cal_nums(0)
+
+    return sum_value
  
 
 # 겹치는 지 확인
